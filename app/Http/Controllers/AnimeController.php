@@ -106,37 +106,46 @@ class AnimeController extends Controller
         ]);
     }
 
-    public function showNew()
+    public function showNew($page = 1)
 
     {
 
         $animeYear = collect(Http::withToken(config('services.aniapi.token'))
-        ->get('https://api.aniapi.com/v1/anime?year=2021&nsfw=true')
+        ->get('https://api.aniapi.com/v1/anime?year=2021&&page='.$page)
         ->json()['data']['documents']);
 
-        
+        $previous = $page > 1 ? $page -1 : null;
+        $next = $page < 5 ? $page +1 : null;
 
-        
         return view('anime-new', [
 
-            'animeYear' => $animeYear
-          
+            'animeYear' => $animeYear,
+            'previous' => $previous,
+            'next' => $next
     
         ]);
     }
 
-    public function showPopular()
+    public function showPopular($page = 1)
 
     {
 
         $animePopular = collect(Http::withToken(config('services.aniapi.token'))
-        ->get('https://api.aniapi.com/v1/anime?nsfw=true')
+        ->get('https://api.aniapi.com/v1/anime?page='.$page)
         ->json()['data']['documents']);
+
+        $previous = $page > 1 ? $page -1 : null;
+        $next = $page < 155 ? $page +1 : null;
+
+        // dd($animePopular);
 
         
         return view('anime-popular', [
 
-            'animePopular' => $animePopular
+            'animePopular' => $animePopular,
+            'previous' => $previous,
+            'next' => $next
+
           
     
         ]);

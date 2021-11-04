@@ -6,7 +6,7 @@ btn.addEventListener("click", function () {
 });
 
 var navdropdown = document.getElementById('navdropdown');
-
+var navinput = document.getElementById('navinput');
 
 document.addEventListener('click', function(e) {
     
@@ -30,13 +30,32 @@ document.addEventListener('keydown', function(e) {
 
     var animeSearch = document.getElementById('animesearch');
 
-    if(e.key === "Escape" && animeSearch || e.shiftKey && animeSearch && e.key === 'Tab'){
+    if(e.key === 'Escape' && animeSearch || e.shiftKey && animeSearch && e.key === 'Tab'){
         
         animeSearch.style.display = 'none';
 	}
     
     
 });
+
+document.addEventListener('keydown', function(e) {
+
+    if(e.keyCode === 191 ){
+
+        e.preventDefault();
+       
+        
+        navinput.focus();
+        
+
+	}
+
+    
+
+
+    
+});
+
 
 
 

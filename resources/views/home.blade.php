@@ -42,7 +42,7 @@
 
             <article class="mt-5 border-solid border-2 border-gray-200 p-2">
 
-                <a href="/categories/{{ $categories[0]['slug'] }}">
+                <a href="/categories/{{ $news_posts[0]['category']['slug'] }}">
                     <h1 class="font-semibold text-gray-500 text-lg">News</h1>
                 </a>
 
@@ -50,17 +50,16 @@
                 <hr class="border-gray-500 mb-5">
 
 
-                @if ($posts->count())
+                @if ($news_posts->count())
 
 
-                    @foreach ($posts as $post)
+                    @foreach ($news_posts->take(5)  as $post)
 
-                        @if ($post->category_id == 1)
+                       
 
 
                             <x-news-card :post="$post" />
 
-                        @endif
 
                     @endforeach
 
@@ -74,22 +73,22 @@
 
             <article class="mt-5 border-solid border-2 border-gray-200 p-2">
 
-                <a href="/categories/{{ $categories[1]['slug'] }}">
+                <a href="/categories/{{ $featured_posts[0]['category']['slug'] }}">
                     <h1 class="font-semibold text-gray-500 text-lg">Featured Articles</h1>
                 </a>
 
                 <hr class="border-gray-500 mb-5">
 
-                @if ($posts->count())
+                @if ($featured_posts->count())
 
 
-                    @foreach ($posts as $post)
+                    @foreach ($featured_posts->take(5) as $post)
 
-                        @if ($post->category_id == 2)
+                      
 
                             <x-featured-card :post="$post" />
 
-                        @endif
+                        
 
                     @endforeach
 

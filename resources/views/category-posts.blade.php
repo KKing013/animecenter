@@ -7,13 +7,14 @@
 
         </a>
 
-        @if ($currentCategory) 
+        @if ($currentCategory)
 
-        <a href="/categories/{{$currentCategory->slug}}" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            {{$currentCategory->name}}
-            <i class="bi bi-chevron-right ml-1"></i>
+            <a href="/categories/{{ $currentCategory->slug }}"
+                class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
+                {{ $currentCategory->name }}
+                <i class="bi bi-chevron-right ml-1"></i>
 
-        </a>
+            </a>
         @endif
 
     </section>
@@ -26,72 +27,66 @@
 
 
 
+
+
             <div class="grid grid-cols-2 gap-4">
 
-                @foreach ($posts as $post)
 
 
-                <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>{{ $post->excerpt}}</p>
-                    </span>
-                    <span class="block text-xs">by {{ $post->author->name}}</span>
-                </div>
 
-                @endforeach
+                @if ($currentCategory->slug == $news_posts[0]['category']['slug'])
 
-                {{-- <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">Title</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>Excerpt</p>
-                    </span>
-                    <span class="block text-xs">by Author</span>
-                </div>
+                    @foreach ($news_posts as $post)
 
-                <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">Title</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>Excerpt</p>
-                    </span>
-                    <span class="block text-xs">by Author</span>
-                </div>
-                <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">Title</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>Excerpt</p>
-                    </span>
-                    <span class="block text-xs">by Author</span>
-                </div>
+                        <div class="space-y-4 mb-10">
+                            <span class="block"> <img width="" height=""
+                                    src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                            <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
+                            <span class="block text-xs text-gray-500">
+                                <p>{{ $post->excerpt }}</p>
+                            </span>
+                            <span class="block text-xs">by {{ $post->author->name }}</span>
+                        </div>
 
-                <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">Title</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>Excerpt</p>
-                    </span>
-                    <span class="block text-xs">by Author</span>
-                </div>
-                <div class="space-y-4">
-                    <span class="block"> <img width="" height=""
-                            src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
-                    <span class="block font-semibold text-black-500 text-sm">Title</span>
-                    <span class="block text-xs text-gray-500">
-                        <p>Excerpt</p>
-                    </span>
-                    <span class="block text-xs">by Author</span>
-                </div> --}}
+                        
+
+                    @endforeach
+
+                    <div class="mt-10 mb-10">
+
+                    {{ $news_posts->links() }}
+
+                    </div>
+
+                @endif
+
+
+                @if ($currentCategory->slug == $featured_posts[0]['category']['slug'])
+
+                    @foreach ($featured_posts as $post)
+
+                        <div class="space-y-4 mb-10">
+                            <span class="block"> <img width="" height=""
+                                    src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                            <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
+                            <span class="block text-xs text-gray-500">
+                                <p>{{ $post->excerpt }}</p>
+                            </span>
+                            <span class="block text-xs">by {{ $post->author->name }}</span>
+                        </div>
+
+                    @endforeach
+
+                    
+                    {{ $featured_posts->links() }}
+
+                @endif
+
+
 
             </div>
+
+
 
         </article>
 
@@ -167,7 +162,7 @@
 
                         @foreach ($animePopular as $anime)
 
-                            <x-placeholder-card :anime="$anime" />
+                            <x-popular-card :anime="$anime" />
 
                         @endforeach
 
@@ -179,13 +174,13 @@
                 </div>
 
             </article>
-    
-    
+
+
         </section>
 
     </section>
 
-  
+
 
 
 

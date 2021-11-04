@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\PostsController;
+use Illuminate\Contracts\Pagination\Paginator;
 
 Route::get('/welcome', function () {
 
@@ -22,7 +23,10 @@ Route::get('posts/{post:slug}', [PostsController::class, 'show']);
 Route::get('anime/season', [AnimeController::class, 'showSeason']);
 Route::get('anime/top-airing', [AnimeController::class, 'showTopAiring']);
 Route::get('anime/new', [AnimeController::class, 'showNew']);
+Route::get('anime/new/page/{page?}', [AnimeController::class, 'showNew']);
+
 Route::get('anime/popular', [AnimeController::class, 'showPopular']);
+Route::get('anime/popular/page/{page?}', [AnimeController::class, 'showPopular']);
 
 
 Route::get('anime/{anime}', [AnimeController::class, 'show']);
@@ -30,7 +34,6 @@ Route::get('anime/{anime}', [AnimeController::class, 'show']);
 
 Route::get('categories/{category:slug}', function (Category $category) {
 
-    
     $animeSeason = collect(Http::withToken(config('services.aniapi.token'))
     ->get('https://api.aniapi.com/v1/anime?status=1&season=3&nsfw=true')
     ->json()['data']['documents'])->take(5);
@@ -44,7 +47,9 @@ Route::get('categories/{category:slug}', function (Category $category) {
     ->json()['data']['documents'])->take(5);
 
     return view('category-posts', [
-        'posts' => $category->posts->load('category','author'),
+        
+        'news_posts' => Post::latest('created_at')->with('category', 'author')->where('category_id', 1)->simplePaginate(10),
+        'featured_posts' => Post::latest('created_at')->with('category', 'author')->where('category_id', 2)->simplePaginate(10),
         'currentCategory' => $category,
         'animeSeason' => $animeSeason,
         'animeYear' => $animeYear,

@@ -23,12 +23,14 @@ class PostsController extends Controller
         ->get('https://api.aniapi.com/v1/anime?nsfw=true')
         ->json()['data']['documents'])->take(5);
 
+
+      
         
 
         return view('home', [
            
-            'posts' => Post::latest('created_at')->with('category', 'author')->filter(request(['search']))->get(),
-            'categories' => Category::all(),
+            'news_posts' => Post::latest('created_at')->with('category', 'author')->where('category_id', 1)->get(),
+            'featured_posts' => Post::latest('created_at')->with('category', 'author')->where('category_id', 2)->get(),
             'animeSeason' => $animeSeason,
             'animeYear' => $animeYear,
             'animePopular' => $animePopular,
