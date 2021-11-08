@@ -7,7 +7,7 @@
 
         </a>
 
-       
+
 
 
         <a href="/categories/{{ $post->category->slug }}"
@@ -35,17 +35,24 @@
 
                 <span class="block text-xs">by {{ $post->author->name }} Published
                     <time>{{ $post->created_at->diffForHumans() }}</time></span>
-                <span class="block"> <img 
-                        src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                <span class="block"> <img src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
 
                 <span class="block">
                     <p>{{ $post->body }}</p>
-                    
+
                 </span>
 
 
 
             </div>
+
+            <section class="col-span-8 col-start-5 mt-10 space-y-6">
+
+                <x-post-comment />
+                <x-post-comment />
+                <x-post-comment />
+                <x-post-comment />
+            </section>
 
         </article>
 
@@ -122,7 +129,7 @@
 
                         @foreach ($animePopular as $anime)
 
-                        <x-popular-card :anime="$anime" />
+                            <x-popular-card :anime="$anime" />
 
                         @endforeach
 

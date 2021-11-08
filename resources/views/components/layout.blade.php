@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 <livewire:styles>
-<body style="font-family: Open Sans, sans-serif">
+<body onload="hideSuccess()" style="font-family: Open Sans, sans-serif">
     <section>
 
         <nav class="bg-white shadow-lg">
@@ -35,17 +35,29 @@
                         </div>
                     </div>
 
-                    <div class="hidden md:flex items-center space-x-3 ">
+                    <div class="hidden md:flex items-center space-x-3">
                         
                         
                         <livewire:search-bar>
+                       
+                        @auth
+
+                        <span class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-red-500 hover:text-white transition duration-300">Welcome, {{ auth()->user()->name }}</span>
+
+                        <form method="POST" action="logout">
+                            @csrf
+                        <button class="py-2 px-2 font-medium text-white bg-red-500 rounded hover:bg-red-300  transition duration-300">Logout</button>
                         
-                        <a href=""
-                            class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-red-500 hover:text-white transition duration-300">Log
-                            In</a>
-                        <a href=""
-                            class="py-2 px-2 font-medium text-white bg-red-500 rounded hover:bg-red-400 transition duration-300">Sign
-                            Up</a>
+                        </form>
+                        
+                        @else
+
+                        
+                        <a href="/register"
+                            class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-red-500 hover:text-white transition duration-300">Register</a>
+                            <a href="/login"
+                            class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-red-500 hover:text-white transition duration-300">Login</a>
+                        @endauth
                     </div>
 
                     <div class="md:hidden flex items-center">
@@ -88,4 +100,11 @@
 
     <script src="/js/custom.js"></script>
     <livewire:scripts>
+
+    @if (session()->has('success'))
+    <div style="display:block" id="success" class="fixed bg-red-500 text-white py-2 px-4 rounded-xl bottom-3 left-3 text-sm">
+        <p> {{ session('success') }} </p>
+    </div>
+
+    @endif
 </body>

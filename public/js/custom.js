@@ -46,15 +46,17 @@ document.addEventListener('keydown', function(e) {
        
         
         navinput.focus();
-        
+    }
 
-	}
-
-    
-
-
-    
 });
+
+function hideSuccess() {setTimeout(function () {
+   
+    document.getElementById('success').style.display='none';
+}, 4000)
+}
+
+
 
 
 
