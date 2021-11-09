@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostsController extends Controller
 {
@@ -55,7 +56,7 @@ class PostsController extends Controller
         ->get('https://api.aniapi.com/v1/anime?nsfw=true')
         ->json()['data']['documents'])->take(5);
         
-        return view('post', [
+        return view('posts.show', [
             'post' => $post,
             'animeSeason' => $animeSeason,
             'animeYear' => $animeYear,
@@ -63,6 +64,17 @@ class PostsController extends Controller
             
     
         ]);
+    }
+
+    public function create () {
+
+     
+
+
+
+        return view('posts.create');
+
+
     }
 
  

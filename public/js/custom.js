@@ -51,8 +51,15 @@ document.addEventListener('keydown', function(e) {
 });
 
 function hideSuccess() {setTimeout(function () {
+
+    const success = document.getElementById('success');
+
+    if(success) {
+
+        success.style.display='none';
+    }
    
-    document.getElementById('success').style.display='none';
+    
 }, 4000)
 }
 

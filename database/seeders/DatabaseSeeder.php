@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
 
@@ -19,11 +20,17 @@ class DatabaseSeeder extends Seeder
         // $user = User::factory()->create();
         // Post::factory()->create();
 
-        Category::truncate();
-        Post::truncate();
+        // Category::truncate();
+        // Post::truncate();
         
 
-       $news = Category::create([
+        // $user = User::factory()->create([
+        //     'name' => 'Kevin King'
+        // ]);
+
+        // Post::factory(20)->create();
+
+        $news = Category::create([
             'name' => 'News',
             'slug' => 'news'
         ]);
@@ -33,7 +40,6 @@ class DatabaseSeeder extends Seeder
             'slug' => 'featured'
         ]);
 
-
         Post::create([
             'user_id' => 1,
             'category_id' => $news->id,
@@ -42,6 +48,17 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats shred all toilet paper and spread around the house, purrrrrr and destroy couch, but stare at ceiling, and sniff catnip and act crazy nya nya nyan',
             'body' => 'Sit on human they not getting up ever leave hair on owners clothes paw at beetle and eat it before it gets away i like frogs and 0 gravity reaches under door into adjacent room. I rule on my back you rub my tummy i bite you hard taco cat backwards spells taco cat i bet my nine lives on you-oooo-ooo-hooo or check cat door for ambush 10 times before coming in. Meoooow poop in litter box, scratch the walls behind the couch small kitty warm kitty little balls of fur ask to go outside and ask to come inside and ask to go outside and ask to come inside taco cat backwards spells taco cat and sugar, my siamese, stalks me (in a good way), day and night . Playing with balls of wool stand in front of the computer screen, yet sugar, my siamese, stalks me (in a good way), day and night yet cat slap dog in face friends are not food or kitty loves pigs for litter kitter kitty litty little kitten big roar roar feed me. Murder hooman toes. Demand to have some of whatever the human is cooking, then sniff the offering and walk away jump around on couch, meow constantly until given food, yet thug cat yet small kitty warm kitty little balls of fur. Hiss at vacuum cleaner has closed eyes but still sees you. Poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls catty ipsum so catch small lizards, bring them into house, then unable to find them on carpet so this human feeds me, i should be a god for run around the house at 4 in the morning so sleep over your phone and make cute snoring noises find box a little too small and curl up with fur hanging out . Ask to go outside and ask to come inside and ask to go outside and ask to come inside plays league of legends so meow. Grass smells good scratch my tummy actually i hate you now fight me. Nya nya nyan love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater) but need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me, Gate keepers of hell chew masters slippers.'
         ]);
+
+        
+        Post::create([
+            'user_id' => 1,
+            'category_id' => $featured->id,
+            'title' => 'My featured post1',
+            'slug' => 'my-featured-post1',
+            'excerpt' => 'Warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats shred all toilet paper and spread around the house, purrrrrr and destroy couch, but stare at ceiling, and sniff catnip and act crazy nya nya nyan',
+            'body' => 'Sit on human they not getting up ever leave hair on owners clothes paw at beetle and eat it before it gets away i like frogs and 0 gravity reaches under door into adjacent room. I rule on my back you rub my tummy i bite you hard taco cat backwards spells taco cat i bet my nine lives on you-oooo-ooo-hooo or check cat door for ambush 10 times before coming in. Meoooow poop in litter box, scratch the walls behind the couch small kitty warm kitty little balls of fur ask to go outside and ask to come inside and ask to go outside and ask to come inside taco cat backwards spells taco cat and sugar, my siamese, stalks me (in a good way), day and night . Playing with balls of wool stand in front of the computer screen, yet sugar, my siamese, stalks me (in a good way), day and night yet cat slap dog in face friends are not food or kitty loves pigs for litter kitter kitty litty little kitten big roar roar feed me. Murder hooman toes. Demand to have some of whatever the human is cooking, then sniff the offering and walk away jump around on couch, meow constantly until given food, yet thug cat yet small kitty warm kitty little balls of fur. Hiss at vacuum cleaner has closed eyes but still sees you. Poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls catty ipsum so catch small lizards, bring them into house, then unable to find them on carpet so this human feeds me, i should be a god for run around the house at 4 in the morning so sleep over your phone and make cute snoring noises find box a little too small and curl up with fur hanging out . Ask to go outside and ask to come inside and ask to go outside and ask to come inside plays league of legends so meow. Grass smells good scratch my tummy actually i hate you now fight me. Nya nya nyan love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater) but need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me, Gate keepers of hell chew masters slippers.'
+        ]);
+
         Post::create([
             'user_id' => 1,
             'category_id' => $news->id,
@@ -198,14 +215,6 @@ class DatabaseSeeder extends Seeder
             'body' => 'Sit on human they not getting up ever leave hair on owners clothes paw at beetle and eat it before it gets away i like frogs and 0 gravity reaches under door into adjacent room. I rule on my back you rub my tummy i bite you hard taco cat backwards spells taco cat i bet my nine lives on you-oooo-ooo-hooo or check cat door for ambush 10 times before coming in. Meoooow poop in litter box, scratch the walls behind the couch small kitty warm kitty little balls of fur ask to go outside and ask to come inside and ask to go outside and ask to come inside taco cat backwards spells taco cat and sugar, my siamese, stalks me (in a good way), day and night . Playing with balls of wool stand in front of the computer screen, yet sugar, my siamese, stalks me (in a good way), day and night yet cat slap dog in face friends are not food or kitty loves pigs for litter kitter kitty litty little kitten big roar roar feed me. Murder hooman toes. Demand to have some of whatever the human is cooking, then sniff the offering and walk away jump around on couch, meow constantly until given food, yet thug cat yet small kitty warm kitty little balls of fur. Hiss at vacuum cleaner has closed eyes but still sees you. Poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls catty ipsum so catch small lizards, bring them into house, then unable to find them on carpet so this human feeds me, i should be a god for run around the house at 4 in the morning so sleep over your phone and make cute snoring noises find box a little too small and curl up with fur hanging out . Ask to go outside and ask to come inside and ask to go outside and ask to come inside plays league of legends so meow. Grass smells good scratch my tummy actually i hate you now fight me. Nya nya nyan love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater) but need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me, Gate keepers of hell chew masters slippers.'
         ]);
 
-        Post::create([
-            'user_id' => 1,
-            'category_id' => $featured->id,
-            'title' => 'My featured post1',
-            'slug' => 'my-featured-post1',
-            'excerpt' => 'Warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats shred all toilet paper and spread around the house, purrrrrr and destroy couch, but stare at ceiling, and sniff catnip and act crazy nya nya nyan',
-            'body' => 'Sit on human they not getting up ever leave hair on owners clothes paw at beetle and eat it before it gets away i like frogs and 0 gravity reaches under door into adjacent room. I rule on my back you rub my tummy i bite you hard taco cat backwards spells taco cat i bet my nine lives on you-oooo-ooo-hooo or check cat door for ambush 10 times before coming in. Meoooow poop in litter box, scratch the walls behind the couch small kitty warm kitty little balls of fur ask to go outside and ask to come inside and ask to go outside and ask to come inside taco cat backwards spells taco cat and sugar, my siamese, stalks me (in a good way), day and night . Playing with balls of wool stand in front of the computer screen, yet sugar, my siamese, stalks me (in a good way), day and night yet cat slap dog in face friends are not food or kitty loves pigs for litter kitter kitty litty little kitten big roar roar feed me. Murder hooman toes. Demand to have some of whatever the human is cooking, then sniff the offering and walk away jump around on couch, meow constantly until given food, yet thug cat yet small kitty warm kitty little balls of fur. Hiss at vacuum cleaner has closed eyes but still sees you. Poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls catty ipsum so catch small lizards, bring them into house, then unable to find them on carpet so this human feeds me, i should be a god for run around the house at 4 in the morning so sleep over your phone and make cute snoring noises find box a little too small and curl up with fur hanging out . Ask to go outside and ask to come inside and ask to go outside and ask to come inside plays league of legends so meow. Grass smells good scratch my tummy actually i hate you now fight me. Nya nya nyan love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater) but need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me, Gate keepers of hell chew masters slippers.'
-        ]);
         Post::create([
             'user_id' => 1,
             'category_id' => $featured->id,
@@ -377,6 +386,37 @@ class DatabaseSeeder extends Seeder
             'excerpt' => 'Warm up laptop with butt lick butt fart rainbows until owner yells pee in litter box hiss at cats shred all toilet paper and spread around the house, purrrrrr and destroy couch, but stare at ceiling, and sniff catnip and act crazy nya nya nyan',
             'body' => 'Sit on human they not getting up ever leave hair on owners clothes paw at beetle and eat it before it gets away i like frogs and 0 gravity reaches under door into adjacent room. I rule on my back you rub my tummy i bite you hard taco cat backwards spells taco cat i bet my nine lives on you-oooo-ooo-hooo or check cat door for ambush 10 times before coming in. Meoooow poop in litter box, scratch the walls behind the couch small kitty warm kitty little balls of fur ask to go outside and ask to come inside and ask to go outside and ask to come inside taco cat backwards spells taco cat and sugar, my siamese, stalks me (in a good way), day and night . Playing with balls of wool stand in front of the computer screen, yet sugar, my siamese, stalks me (in a good way), day and night yet cat slap dog in face friends are not food or kitty loves pigs for litter kitter kitty litty little kitten big roar roar feed me. Murder hooman toes. Demand to have some of whatever the human is cooking, then sniff the offering and walk away jump around on couch, meow constantly until given food, yet thug cat yet small kitty warm kitty little balls of fur. Hiss at vacuum cleaner has closed eyes but still sees you. Poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls catty ipsum so catch small lizards, bring them into house, then unable to find them on carpet so this human feeds me, i should be a god for run around the house at 4 in the morning so sleep over your phone and make cute snoring noises find box a little too small and curl up with fur hanging out . Ask to go outside and ask to come inside and ask to go outside and ask to come inside plays league of legends so meow. Grass smells good scratch my tummy actually i hate you now fight me. Nya nya nyan love and coo around boyfriend who purrs and makes the perfect moonlight eyes so i can purr and swat the glittery gleaming yarn to him (the yarn is from a $125 sweater) but need to check on human, have not seen in an hour might be dead oh look, human is alive, hiss at human, feed me, Gate keepers of hell chew masters slippers.'
         ]);
+
+    Comment::create([
+        'post_id' => 1,
+        'user_id' => 1,
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime doloremque repudiandae sit aut ab impedit optio accusamus voluptate dolore laboriosam debitis, facere corrupti reprehenderit.'
+    ]);
+
+    Comment::create([
+        'post_id' => 2,
+        'user_id' => 1,
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime doloremque repudiandae sit aut ab impedit optio accusamus voluptate dolore laboriosam debitis, facere corrupti reprehenderit.'
+    ]);
+
+    Comment::create([
+        'post_id' => 3,
+        'user_id' => 1,
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime doloremque repudiandae sit aut ab impedit optio accusamus voluptate dolore laboriosam debitis, facere corrupti reprehenderit.'
+    ]);
+
+    Comment::create([
+        'post_id' => 4,
+        'user_id' => 1,
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime doloremque repudiandae sit aut ab impedit optio accusamus voluptate dolore laboriosam debitis, facere corrupti reprehenderit.'
+    ]);
+        
+    Comment::create([
+        'post_id' => 5,
+        'user_id' => 1,
+        'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam maxime doloremque repudiandae sit aut ab impedit optio accusamus voluptate dolore laboriosam debitis, facere corrupti reprehenderit.'
+    ]);
+        
         
 
     }
