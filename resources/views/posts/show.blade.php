@@ -32,10 +32,19 @@
 
                     <p>{{ $post->excerpt }}</p>
                 </span>
+                
+                @if ($post->thumbnail == null)
+                <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
+                alt="" />
+                    
+                @else
+                <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
+                   
+                @endif
 
                 <span class="block text-xs">by {{ $post->author->name }} Published
                     <time>{{ $post->created_at->diffForHumans() }}</time></span>
-                <span class="block"> <img src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                   
 
                 <span class="block">
                     <p>{{ $post->body }}</p>

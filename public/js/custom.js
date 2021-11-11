@@ -64,8 +64,49 @@ function hideSuccess() {setTimeout(function () {
 }
 
 
+// Toggle show and hide of dropdown
+
+function dropdown() {
+    document.getElementById("dropdownNav").classList.toggle("show");
+  }
+  
+
+// Close dropdown when user clicks outside  
+
+window.onclick = function(e) {
+   
+    if (!e.target.matches('.dropbtn')) {
+
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+     
+      var i;
+     
+      for (i = 0; i < dropdowns.length; i++) {
+     
+        var openDropdown = dropdowns[i];
+     
+        if (openDropdown.classList.contains('show')) {
+     
+            openDropdown.classList.remove('show');
+        }
+      }
+    }
+}
 
 
+// Logout Form
+
+const logoutLink = document.getElementById("logout")
+
+logoutLink.addEventListener('click', function (e) {
+
+    const logout = document.getElementById("logout-form")
+
+    logout.submit();
+
+    e.preventDefault();
+
+})
 
 
 

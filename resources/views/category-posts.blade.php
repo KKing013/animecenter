@@ -39,8 +39,18 @@
                     @foreach ($news_posts as $post)
 
                         <div class="space-y-4 mb-10">
-                            <span class="block"> <img width="" height=""
-                                    src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                            <span class="block">
+
+
+                                @if ($post->thumbnail == null)
+                                    <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
+                                        alt="" />
+
+                                @else
+                                    <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
+
+                                @endif
+                            </span>
                             <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
                             <span class="block text-xs text-gray-500">
                                 <p>{{ $post->excerpt }}</p>
@@ -48,13 +58,13 @@
                             <span class="block text-xs">by {{ $post->author->name }}</span>
                         </div>
 
-                        
+
 
                     @endforeach
 
                     <div class="mt-10 mb-10">
 
-                    {{ $news_posts->links() }}
+                        {{ $news_posts->links() }}
 
                     </div>
 
@@ -66,8 +76,16 @@
                     @foreach ($featured_posts as $post)
 
                         <div class="space-y-4 mb-10">
-                            <span class="block"> <img width="" height=""
-                                    src="\images\flatten;crop_down;jpeg_quality=70.png" alt="" /></span>
+                            <span class="block">
+                                @if ($post->thumbnail == null)
+                                    <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
+                                        alt="" />
+
+                                @else
+                                    <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
+
+                                @endif
+                            </span>
                             <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
                             <span class="block text-xs text-gray-500">
                                 <p>{{ $post->excerpt }}</p>
@@ -77,7 +95,7 @@
 
                     @endforeach
 
-                    
+
                     {{ $featured_posts->links() }}
 
                 @endif
