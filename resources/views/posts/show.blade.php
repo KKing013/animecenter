@@ -46,7 +46,7 @@
                     <time>{{ $post->created_at->diffForHumans() }}</time></span>
                    
 
-                <span class="block">
+                <span class="block space-y-4">
                     <p>{{ $post->body }}</p>
 
                 </span>
@@ -65,7 +65,7 @@
 
                     <header class="flex items-center">
 
-                        <img src="https://i.pravatar.cc/60" width="40" height="40" alt="" class="rounded-full">
+                        <img src="/storage/{{ auth()->user()->avatar }}" width="60" height="60" alt="" class="rounded-full">
 
                         <h2 class="ml-3">Leave a comment</h2>
 

@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <title>{{ config('app.name', 'AnimeCenter') }}</title>
@@ -26,15 +27,45 @@
                             </div>
 
                             <div class="hidden md:flex items-center space-x-1">
-                                <a href=""
-                                    class="py-4 px-2 text-red-500 border-b-4 border-red-500 font-semibold ">Home</a>
-                                <a href=""
-                                    class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">Services</a>
-                                <a href=""
+
+
+                                <div class="dropdown relative inline-block">
+
+                                    <button id="animeNav" href=""
+                                    class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">Anime</button>
+                                   
+
+                                    <div id="animeDropdown"
+                                        class="dropdown-content hidden absolute w-44 overflow-auto z-10" >
+
+
+                                        <a class="p-2 text-gray-500 bg-white hover:bg-red-500 hover:text-white transition duration-300 rounded block no-underline"
+                                            href="/anime/season">Fall 2021 Anime</a>
+
+                                        <a class="p-2 text-gray-500 bg-white hover:bg-red-500 hover:text-white transition duration-300 rounded block no-underline"
+                                            href="/anime/top-airing">Top Airing Anime</a>
+                                        
+                                        <a class="p-2 text-gray-500 bg-white hover:bg-red-500 hover:text-white transition duration-300 rounded block no-underline"
+                                            href="/anime/new">New 2021 Anime</a>
+
+                                        <a class="p-2 text-gray-500 bg-white hover:bg-red-500 hover:text-white transition duration-300 rounded block no-underline"
+                                            href="/anime/popular">Popular Anime</a>
+
+
+
+
+
+
+                                    </div>
+                                </div>
+
+                                <a href="/categories/{{ App\Models\Category::where('id', 1)->value('slug'); }}"
+                                    class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">News</a>
+                                
+                                 <a href="/categories/{{  App\Models\Category::where('id', 2)->value('slug'); }}"
+                                    class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">Featured</a>
+                                <a href="/about"
                                     class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">About</a>
-                                <a href=""
-                                    class="py-4 px-2 text-gray-500 font-semibold hover:text-red-500 transition duration-300">Contact
-                                    Us</a>
                             </div>
                         </div>
 
@@ -44,6 +75,9 @@
                             <livewire:search-bar>
 
                                 @auth
+
+                                    <div><img src="/storage/{{ auth()->user()->avatar }}" width="40" height="40" alt=""
+                                            class="rounded-full"></div>
 
                                     <div class="dropdown relative inline-block">
 
@@ -56,6 +90,8 @@
                                             class="dropdown-content hidden absolute min-w-full overflow-auto z-10">
 
 
+                                            <a class="p-2 text-gray-500 bg-white hover:bg-red-500 hover:text-white transition duration-300 rounded block no-underline"
+                                                href="/user/{{ auth()->user()->id }}/edit">Edit Profile</a>
 
                                             @admin
 
@@ -127,6 +163,8 @@
         </section>
 
         {{ $slot }}
+
+        <x-footer />
 
         <script src="/js/custom.js"></script>
         <livewire:scripts>

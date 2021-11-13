@@ -9,6 +9,8 @@
                 <h4 class="font-semibold mb-4">Links</h4>
 
                 <ul>
+                 
+                   
                     <li>
                         <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">Manage
                             Posts</a>

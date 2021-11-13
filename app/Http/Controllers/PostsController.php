@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Contracts\Validation\Rule;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Validation\Rules;
 
 class PostsController extends Controller
 {
@@ -27,10 +28,6 @@ class PostsController extends Controller
             ->get('https://api.aniapi.com/v1/anime?nsfw=true')
             ->json()['data']['documents'])->take(5);
 
-
-
-
-
         return view('home', [
 
             'news_posts' => Post::latest('updated_at')->with('category', 'author')->where('category_id', 1)->get(),
@@ -47,6 +44,8 @@ class PostsController extends Controller
     public function show(Post $post)
     {
 
+        
+
         $animeSeason = collect(Http::withToken(config('services.aniapi.token'))
             ->get('https://api.aniapi.com/v1/anime?status=1&season=3&nsfw=true')
             ->json()['data']['documents'])->take(5);
@@ -62,6 +61,7 @@ class PostsController extends Controller
             
 
         return view('posts.show', [
+            
             'post' => $post,
             'animeSeason' => $animeSeason,
             'animeYear' => $animeYear,

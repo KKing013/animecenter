@@ -63,12 +63,24 @@ function hideSuccess() {setTimeout(function () {
 }, 4000)
 }
 
+function animeDropown() {
+    document.getElementById("animeDropdown").classList.toggle("show");
+}
+
+document.getElementById('animeNav').addEventListener('mouseover', function () {
+    
+    animeDropown();
+
+})
+
+
+
 
 // Toggle show and hide of dropdown
 
 function dropdown() {
     document.getElementById("dropdownNav").classList.toggle("show");
-  }
+}
   
 
 // Close dropdown when user clicks outside  
