@@ -1,68 +1,117 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
+        <x-links>
+            <x-slot name="href">
+                /
+            </x-slot>
 
-        </a>
+            <x-slot name="title">
+                Home
+            </x-slot>
+        </x-links>
 
+        <x-links>
+            <x-slot name="href">
+                /anime/popular
+            </x-slot>
 
+            <x-slot name="title">
+                Popular Anime
+            </x-slot>
+        </x-links>
 
-        <a href="/anime/popular"
-            class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Popular Anime
-            <i class="bi bi-chevron-right ml-1"></i>
-
-        </a>
 
 
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
+    <section class="max-w-6xl mx-auto space-y-7 flex md:p-0 p-2">
 
-        <article class="mt-8 border-solid border-2 border-gray-200">
-            <div class="grid grid-cols-3 gap-1">
-                
-                <div class="mx-auto mt-4 text-4xl">Score</div>
-                <div class="mx-auto mt-4 text-4xl">Title</div>
-                <div class="mx-auto mt-4 text-4xl">Season Year</div>
-                
+        <article class="mt-8">
 
-                
+            <div class="grid grid-cols-3 gap-1 bg-red-500 text-white p-2 ">
+
+                <div class="mx-auto">Score</div>
+                <div class="mx-auto">Title</div>
+                <div class="mx-auto">Season Year</div>
+
+
+
             </div>
 
-            <div class="grid grid-cols-3 gap-1">
+            <div class="grid grid-cols-3 border-solid border-2 border-gray-200">
 
 
                 @foreach ($animePopular as $anime)
 
 
 
-                    
-                <div class="mx-auto mt-10 text-2xl">{{ $anime['score'] }}</div>
+
+                    <div class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                        {{ $anime['score'] }}
+
+                    </div>
+
+
                     <a href="/anime/{{ $anime['id'] }}">
-                        <div class="flex mx-auto mt-10">
-                            <img width="100" height="100" src="{{ $anime['cover_image'] }}" alt="" />
-                            <span class="ml-2 font-semibold text-black-500 text-sm"> {{ $anime['titles']['en'] }}<p
-                                    class="text-xs text-gray-500">
-                                </p></span>
+
+                        <div class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200">
+
+                            <img width="100" height="100" src="{{ $anime['cover_image'] }}" alt=""
+                                class="hover:opacity-60 duration-300 p-4" />
+
+                            <span class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                                {{ $anime['titles']['en'] }}
+
+                            </span>
 
                         </div>
                     </a>
 
-                    @if( isset($anime['season_year']) )
+                    @if (isset($anime['season_year']))
 
-                    <div class="mx-auto mt-10 text-2xl">{{ $anime['season_year'] }}</div>
+                        <div
+                            class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+
+
+
+
+
+
+                            {{ $anime['season_year'] }}
+
+
+                        </div>
+
+
+
                     @else
-                    <div class="mx-auto mt-10 text-2xl">N/A</div>
+
+                        <div
+                            class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+
+
+
+
+
+                            N/A
+
+
+                        </div>
+
+
+
+
+
                     @endif
-                
-                
+
+
+
+
                 @endforeach
 
 
-              
+
 
 
 
@@ -96,7 +145,7 @@
 </x-layout>
 
 
-{{-- Pagination  --}}
+{{-- Pagination --}}
 
 <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center mt-2 mb-10">
 

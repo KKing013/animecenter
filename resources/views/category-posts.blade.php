@@ -1,27 +1,32 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
 
-        </a>
+        <x-links>
+            <x-slot name="href">
+                /
+            </x-slot>
+
+            <x-slot name="title">
+                Home
+            </x-slot>
+        </x-links>
 
         @if ($currentCategory)
 
             <a href="/categories/{{ $currentCategory->slug }}"
-                class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
+                class="transition-colors duration-300 relative inline-flex items-center hover:text-red-500">
                 {{ $currentCategory->name }}
-                <i class="bi bi-chevron-right ml-1"></i>
+                <i class="bi bi-chevron-right relative inline-flex items-center"></i>
 
             </a>
         @endif
 
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
+    <section class="max-w-6xl mx-auto space-y-7 md:flex md:p-0 p-2">
 
-        <article class="mt-8 mr-4 border-solid border-2 border-gray-200 p-3 max-w-3xl">
+        <article class="mt-7 md:mr-4 border-solid border-2 border-gray-200 p-3 max-w-3xl rounded-xl">
 
 
 
@@ -37,26 +42,29 @@
                 @if ($currentCategory->slug == $news_posts[0]['category']['slug'])
 
                     @foreach ($news_posts as $post)
+                        
+                    
+                    <a href="/posts/{{$post->slug}}">
+                            <div class="space-y-4">
+                                <span class="block">
 
-                        <div class="space-y-4 mb-10">
-                            <span class="block">
 
+                                    @if ($post->thumbnail == null)
+                                        <img width="" height="" src="\images\10-2-anime-png-images.png"
+                                            alt="" />
 
-                                @if ($post->thumbnail == null)
-                                    <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
-                                        alt="" />
+                                    @else
+                                        <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
 
-                                @else
-                                    <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
-
-                                @endif
-                            </span>
-                            <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
-                            <span class="block text-xs text-gray-500">
-                                <p>{{ $post->excerpt }}</p>
-                            </span>
-                            <span class="block text-xs">by {{ $post->author->name }}</span>
-                        </div>
+                                    @endif
+                                </span>
+                                <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
+                                <span class="block text-xs text-gray-500">
+                                    <p>{{ $post->excerpt }}</p>
+                                </span>
+                                <span class="block text-xs">by {{ $post->author->name }}</span>
+                            </div>
+                    </a>
 
 
 
@@ -75,10 +83,11 @@
 
                     @foreach ($featured_posts as $post)
 
-                        <div class="space-y-4 mb-10">
+                    <a href="/posts/{{$post->slug}}">
+                        <div class="space-y-4 mb-5">
                             <span class="block">
                                 @if ($post->thumbnail == null)
-                                    <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
+                                    <img src="\images\10-2-anime-png-images.png"
                                         alt="" />
 
                                 @else
@@ -92,6 +101,7 @@
                             </span>
                             <span class="block text-xs">by {{ $post->author->name }}</span>
                         </div>
+                    </a>
 
                     @endforeach
 

@@ -1,9 +1,28 @@
+
 const btn = document.querySelector("button.mobile-menu-button");
 const menu = document.querySelector(".mobile-menu");
+const animeBtn= document.querySelector(".anime-dropdown");
+const animeMenu = document.querySelector(".anime-dropdown-menu");
+const profileBtn= document.querySelector(".profile-dropdown");
+const profileMenu = document.querySelector(".profile-dropdown-menu");
 
 btn.addEventListener("click", function () {
     menu.classList.toggle("hidden");
 });
+
+animeBtn.addEventListener("click", function (e) {
+    animeMenu.classList.toggle("hidden");
+    e.preventDefault();
+});
+
+if (profileBtn) {
+profileBtn.addEventListener("click", function (e) {
+    profileMenu.classList.toggle("hidden");
+    e.preventDefault();
+});
+};
+
+
 
 var navdropdown = document.getElementById('navdropdown');
 var navinput = document.getElementById('navinput');

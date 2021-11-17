@@ -2,9 +2,9 @@
 
     <section class="py-8 max-w-4xl mx-auto">
 
-        <div class="flex">
+        <div class="lg:flex">
 
-            <aside class="w-48">
+            <aside class="w-48 mb-4 p-2">
 
                 <h4 class="font-semibold mb-4">Links</h4>
 
@@ -12,18 +12,17 @@
                  
                    
                     <li>
-                        <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">Manage
+                        <a href="/admin/posts">Manage
                             Posts</a>
                     </li>
 
                     <li>
-                        <a href="/admin/posts/create"
-                            class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
+                        <a href="/admin/posts/create">New Post</a>
                     </li>
                 </ul>
             </aside>
 
-            <main class="flex-1">
+            <main class="flex-1 p-2">
 
                 <h1 class="text-lg font-bold mb-8 pb-2 border-b">
                     Edit Post : {{ $post->title }}
@@ -40,9 +39,11 @@
 
                         <div class="flex mt-6">
 
+                            
                             <div class="flex-1">
-                                <x-form.input name="thumbnail" type="file"
-                                    :value="old('thumbnail', $post->thumbnail)" />
+                                
+                                <x-form.input name="thumbnail" type="file" :value="old('thumbnail', $post->thumbnail)" />
+                                   
                             </div>
 
                             <img src="/storage/{{ $post->thumbnail }}" alt="" class="rounded-xl ml-6" width="100">

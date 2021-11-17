@@ -39,7 +39,7 @@ class AdminPostController extends Controller
         $request->validate([
 
             'title' => 'required',
-            'thumbnail' => ['required', 'image'],
+            'thumbnail' => ['required', 'image','dimensions:width=500,height=500'],
             'slug' => ['required', Rule::unique('posts', 'slug')],
             'excerpt' => 'required',
             'body' => 'required',
@@ -86,7 +86,7 @@ class AdminPostController extends Controller
         $attributes = request()->validate([
 
             'title' => 'required',
-            'thumbnail' => 'image',
+            'thumbnail' => ['image','dimensions:width=500,height=500'],
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
             'excerpt' => 'required',
             'body' => 'required',

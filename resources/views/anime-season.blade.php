@@ -1,59 +1,68 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
 
-        </a>
+        <x-links>
+            <x-slot name="href">
+                /
+            </x-slot>
 
-        
+            <x-slot name="title">
+                Home
+            </x-slot>
+        </x-links>
 
-        <a href="/anime/season" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-           Fall 2021 Anime
-            <i class="bi bi-chevron-right ml-1"></i>
+        <x-links>
+            <x-slot name="href">
+                /anime/season
+            </x-slot>
 
-        </a>
-       
+            <x-slot name="title">
+                Fall 2021 Anime
+            </x-slot>
+        </x-links>
+
 
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
+    <section class="max-w-6xl mx-auto space-y-7 flex rounded-xl md:p-0 p-2">
 
-        <article class="mt-8 border-solid border-2 border-gray-200">
-
-
+        <article class="mt-8 border-solid border-2 border-gray-200 rounded-xl">
 
 
 
-            <div class="grid grid-cols-3 gap-1">
+
+
+            <div class="grid md:grid-cols-3 sm:grid-cols-2  gap-1">
 
                 @foreach ($animeSeason as $anime)
 
 
-             
-                <a href="/anime/{{ $anime['id'] }}">
-                <div class="flex items-center p-3">
-                    <img img class="w-52 h-72"  src="{{ $anime['cover_image'] }}" alt="" />
-                    <span class="ml-2 font-semibold text-black-500 text-sm"> {{ $anime['titles']['en'] }}<p class="text-xs text-gray-500">
-                       </p></span>
-            
-                </div>
-                </a>
+
+                    <a href="/anime/{{ $anime['id'] }}">
+                        <div
+                            class="flex items-center p-3 bg-white hover:bg-red-500 hover:text-white transition duration-300">
+                            <img img class="w-52 h-72" src="{{ $anime['cover_image'] }}" alt="" />
+                            <span class="ml-2 font-semibold text-black-500 text-sm"> {{ $anime['titles']['en'] }}<p
+                                    class="text-xs text-gray-500">
+                                </p></span>
+
+                        </div>
+                    </a>
 
                 @endforeach
 
-            
+
 
             </div>
 
         </article>
 
-        
+
 
     </section>
 
-  
+
 
 
 

@@ -1,18 +1,18 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded">
+        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-red-500">
             Home
             <i class="bi bi-chevron-right ml-1"></i>
 
         </a>
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
+    <section class="max-w-6xl mx-auto space-y-7 flex md:p-0 p-2">
 
-        <article class="mt-8">
+        <article class="mt-8 md:mr-4 border-solid border-2 border-gray-200 p-4 rounded-xl">
 
-            <div class="grid grid-cols-3 gap-10">
+            <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-10">
 
                 <div>
 

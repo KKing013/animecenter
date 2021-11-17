@@ -1,19 +1,21 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
-
-        </a>
-
-
-
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
+        
+        <x-links>
+            <x-slot name="href">
+                 /
+             </x-slot>
+             
+             <x-slot name="title">
+                 Home
+             </x-slot>
+         </x-links>
 
         <a href="/categories/{{ $post->category->slug }}"
-            class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
+            class="transition-colors duration-300 relative inline-flex items-center hover:text-red-500">
             {{ $post->category->name }}
-            <i class="bi bi-chevron-right ml-1"></i>
+            <i class="bi bi-chevron-right relative inline-flex items-center"></i>
         </a>
 
 
@@ -22,8 +24,9 @@
 
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
-        <article class="mt-8 mr-4 border-solid border-2 border-gray-200 p-4 max-w-3xl">
+    <section class="max-w-6xl mx-auto space-y-7 md:flex md:p-0 p-2">
+        
+        <article class="md:w-5/6 mt-7 md:mr-4 border-solid border-2 border-gray-200 p-4 rounded-xl">
 
 
             <div class="space-y-2">
@@ -34,11 +37,13 @@
                 </span>
                 
                 @if ($post->thumbnail == null)
-                <img width="" height="" src="\images\flatten;crop_down;jpeg_quality=70.png"
+                
+                <img width="500" height="500" src="\images\10-2-anime-png-images.png" class="mx-auto my-1"
                 alt="" />
                     
                 @else
-                <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
+                
+                <img width="500" height="500" src="/storage/{{ $post->thumbnail }}" class="mx-auto my-1" alt="">
                    
                 @endif
 
@@ -46,8 +51,8 @@
                     <time>{{ $post->created_at->diffForHumans() }}</time></span>
                    
 
-                <span class="block space-y-4">
-                    <p>{{ $post->body }}</p>
+                <span class="block space-y-4" style="white-space: pre-line;">
+                    {{ $post->body }}
 
                 </span>
 
@@ -109,7 +114,7 @@
         </article>
 
 
-        <section>
+        <section class="max-w">
 
             <article>
 

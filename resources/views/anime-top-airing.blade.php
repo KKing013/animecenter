@@ -1,64 +1,140 @@
 <x-layout>
 
-    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
-
-        </a>
-
+    <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
         
+        <x-links>
+           <x-slot name="href">
+                /
+            </x-slot>
+            
+            <x-slot name="title">
+                Home
+            </x-slot>
+        </x-links>
 
-        <a href="/anime/top-airing" class="transition-colors duration-300 relative inline-flex items-center hover:text-blue-500">
-           Top Airing Anime
-            <i class="bi bi-chevron-right ml-1"></i>
+        <x-links>
+            <x-slot name="href">
+                /anime/top-airing
+             </x-slot>
+             
+             <x-slot name="title">
+                Top Airing Anime
+             </x-slot>
+         </x-links>
 
-        </a>
-       
 
     </section>
 
-    <section class="max-w-6xl mx-auto space-y-7 flex">
+    <section class="max-w-6xl mx-auto space-y-7 flex md:p-0 p-2">
 
-        <article class="mt-8 border-solid border-2 border-gray-200">
-            <div class="grid grid-cols-3 gap-1">
-                <div class="mx-auto mt-4 text-4xl">Rank</div>
-                <div class="mx-auto mt-4 text-4xl">Title</div>
-                <div class="mx-auto mt-4 text-4xl">Score</div>
+        <article class="mt-8">
+
+            <div class="grid grid-cols-3 gap-1 bg-red-500 text-white p-2 ">
+
+                <div class="mx-auto">Score</div>
+                <div class="mx-auto">Title</div>
+                <div class="mx-auto">Episodes</div>
+
+
+
             </div>
 
-            <div class="grid grid-cols-3 gap-1">
+            <div class="grid grid-cols-3 border-solid border-2 border-gray-200">
 
-                
+
                 @foreach ($animeSeason as $anime)
 
-          
 
-                <div class="mx-auto mt-4 text-4xl">{{ $loop->iteration }}</div>
 
-                <a href="/anime/{{ $anime['id'] }}">
-                <div class="flex mx-auto mt-4">
-                    <img width="48" height="48" src="{{ $anime['cover_image'] }}" alt="" />
-                    <span class="ml-2 font-semibold text-black-500 text-sm"> {{ $anime['titles']['en'] }}<p class="text-xs text-gray-500">
-                       </p></span>
-            
-                </div>
-                </a>
-                <div class="mx-auto mt-4 text-2xl">{{ $anime['score'] }}</div>
+
+                    <div class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                        {{ $anime['score'] }}
+
+                    </div>
+
+
+                    <a href="/anime/{{ $anime['id'] }}">
+
+                        <div class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200">
+
+                            <img width="100" height="100" src="{{ $anime['cover_image'] }}" alt=""
+                                class="hover:opacity-60 duration-300 p-4" />
+
+                            <span class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                                {{ $anime['titles']['en'] }}
+
+                            </span>
+
+                        </div>
+                    </a>
+
+                    @if (isset($anime['episodes_count']))
+
+                        <div
+                            class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+
+
+
+
+
+
+                            {{ $anime['episodes_count'] }}
+
+
+                        </div>
+
+
+
+                    @else
+
+                        <div
+                            class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+
+
+
+
+
+                            N/A
+
+
+                        </div>
+
+
+
+
+
+                    @endif
+
+
+
 
                 @endforeach
 
-            
+
+
+
+
 
             </div>
 
+
+
+
+
+
+
+
         </article>
 
-        
+
+
+
+
+
 
     </section>
 
-  
+
 
 
 

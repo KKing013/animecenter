@@ -2,9 +2,9 @@
 
     <section class="py-8 max-w-4xl mx-auto">
 
-        <div class="flex">
+        <div class="lg:flex">
 
-            <aside class="w-48 flex-shrink-0">
+            <aside class="w-48 mb-4 p-2 flex-shrink-0">
 
                 <h4 class="font-semibold mb-4">Links</h4>
 
@@ -14,18 +14,18 @@
                 <ul>
                  
                     <li>
-                        <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">Manage
+                        <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-red-500' : '' }}">Manage
                             Posts</a>
                     </li>
 
                     <li>
                         <a href="/admin/posts/create"
-                            class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
+                            class="{{ request()->is('admin/posts/create') ? 'text-red-500' : '' }}">New Post</a>
                     </li>
                 </ul>
             </aside>
 
-            <main class="flex-1">
+            <main class="flex-1 p-2">
 
                 <h1 class="text-lg font-bold mb-8 pb-2 border-b">
                     Manage Posts
@@ -36,7 +36,7 @@
 
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-4 lg:px-8">
                                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg mb-4">
                                     <table class="min-w-full divide-y divide-gray-200">
                                         <thead class="bg-gray-50">
@@ -63,9 +63,17 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="flex items-center">
                                                         <div class="flex-shrink-0 h-10 w-10">
+                                                            
+                                                            @if ($post->thumbnail == null)
+                                                            <img class="h-10 w-10 rounded-full"
+                                                                src="\images\10-2-anime-png-images.png"
+                                                                alt="">
+                                                            @else 
                                                             <img class="h-10 w-10 rounded-full"
                                                                 src="/storage/{{ $post->thumbnail }}"
                                                                 alt="">
+                                                            @endif
+
                                                         </div>
                                                         <div class="ml-4">
                                                             <div class="text-sm font-medium text-gray-900 hover:text-gray-400">

@@ -2,25 +2,25 @@
 
     <section class="py-8 max-w-4xl mx-auto">
 
-        <div class="flex">
+        <div class="lg:flex">
 
-            <aside class="w-48">
+            <aside class="w-48 mb-4 p-2">
 
                 <h4 class="font-semibold mb-4">Links</h4>
 
                 <ul>
                    
                     <li>
-                        <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">Manage Posts</a>
+                        <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-red-500' : '' }}">Manage Posts</a>
                     </li>
                     
                     <li>
-                        <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
+                        <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-red-500' : '' }}">New Post</a>
                     </li>
                 </ul>
             </aside>
 
-            <main class="flex-1">
+            <main class="flex-1 p-2">
 
                 <h1 class="text-lg font-bold mb-8 pb-2 border-b">
                     Publish New Post

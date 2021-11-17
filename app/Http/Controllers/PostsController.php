@@ -28,6 +28,10 @@ class PostsController extends Controller
             ->get('https://api.aniapi.com/v1/anime?nsfw=true')
             ->json()['data']['documents'])->take(5);
 
+        
+
+        
+
         return view('home', [
 
             'news_posts' => Post::latest('updated_at')->with('category', 'author')->where('category_id', 1)->get(),

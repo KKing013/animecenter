@@ -1,7 +1,7 @@
-<footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center p-10 mt-10">
+<footer class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center p-10 mt-20">
 
 
-    <div class="grid grid-cols-4 gap-1 max-w-2xl mx-auto mb-10">
+    <div class="grid md:grid-cols-4 sm:grid-cols-2 gap-1 max-w-2xl mx-auto mb-10">
 
 
         <a href="#">

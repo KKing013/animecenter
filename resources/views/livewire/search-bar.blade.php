@@ -1,4 +1,4 @@
-<div id="navdropdown" class="relative flex lg:inline-flex px-3 py-2">
+<div id="navdropdown" class="relative flex lg:inline-flex md:px-3 py-2">
 
 
 
@@ -8,7 +8,7 @@
     <div wire:loading class="spinner top-0 right-0 mr-6 mt-7"></div>
 
     @if (strlen($search) >= 2)
-        <div class="absolute bg-gray-100 text-sm rounded w-52 mt-11">
+        <div class="absolute bg-gray-100 text-sm rounded w-52 mt-11 z-50">
 
             @if (isset($searchResults['message']))
 
@@ -17,6 +17,7 @@
             @else
 
                 <ul id="animesearch">
+                    
                     @foreach ($searchResults as $result)
 
                         <li class="border-b border-gray-700">

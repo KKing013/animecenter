@@ -2,9 +2,9 @@
 
     <section class="py-8 max-w-4xl mx-auto">
 
-        <div class="flex">
+        <div class="lg:flex">
 
-            <aside class="w-48">
+            <aside class="w-48 mb-4 p-2">
 
                 <h4 class="font-semibold mb-4">Links</h4>
 
@@ -17,7 +17,7 @@
                 </ul>
             </aside>
 
-            <main class="flex-1">
+            <main class="flex-1 p-2">
 
                 <h1 class="text-lg font-bold mb-8 pb-2 border-b">
                     Edit Profile : {{ auth()->user()->name }}
