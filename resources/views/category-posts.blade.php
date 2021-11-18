@@ -28,30 +28,19 @@
 
         <article class="mt-7 md:mr-4 border-solid border-2 border-gray-200 p-3 max-w-3xl rounded-xl">
 
-
-
-
-
-
-
             <div class="grid grid-cols-2 gap-4">
-
-
-
 
                 @if ($currentCategory->slug == $news_posts[0]['category']['slug'])
 
                     @foreach ($news_posts as $post)
-                        
-                    
-                    <a href="/posts/{{$post->slug}}">
+
+                        <a href="/posts/{{ $post->slug }}">
                             <div class="space-y-4">
                                 <span class="block">
 
 
                                     @if ($post->thumbnail == null)
-                                        <img width="" height="" src="\images\10-2-anime-png-images.png"
-                                            alt="" />
+                                        <img width="" height="" src="\images\10-2-anime-png-images.png" alt="" />
 
                                     @else
                                         <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
@@ -64,7 +53,7 @@
                                 </span>
                                 <span class="block text-xs">by {{ $post->author->name }}</span>
                             </div>
-                    </a>
+                        </a>
 
 
 
@@ -83,25 +72,24 @@
 
                     @foreach ($featured_posts as $post)
 
-                    <a href="/posts/{{$post->slug}}">
-                        <div class="space-y-4 mb-5">
-                            <span class="block">
-                                @if ($post->thumbnail == null)
-                                    <img src="\images\10-2-anime-png-images.png"
-                                        alt="" />
+                        <a href="/posts/{{ $post->slug }}">
+                            <div class="space-y-4 mb-5">
+                                <span class="block">
+                                    @if ($post->thumbnail == null)
+                                        <img src="\images\10-2-anime-png-images.png" alt="" />
 
-                                @else
-                                    <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
+                                    @else
+                                        <img src="/storage/{{ $post->thumbnail }}" alt="" class="w-full">
 
-                                @endif
-                            </span>
-                            <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
-                            <span class="block text-xs text-gray-500">
-                                <p>{{ $post->excerpt }}</p>
-                            </span>
-                            <span class="block text-xs">by {{ $post->author->name }}</span>
-                        </div>
-                    </a>
+                                    @endif
+                                </span>
+                                <span class="block font-semibold text-black-500 text-sm">{{ $post->title }}</span>
+                                <span class="block text-xs text-gray-500">
+                                    <p>{{ $post->excerpt }}</p>
+                                </span>
+                                <span class="block text-xs">by {{ $post->author->name }}</span>
+                            </div>
+                        </a>
 
                     @endforeach
 
@@ -156,8 +144,6 @@
                     </a>
 
                     <hr class="border-gray-500 mb-5">
-
-
 
                     <div class="grid grid-cols-1 gap-2">
 

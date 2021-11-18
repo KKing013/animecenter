@@ -17,7 +17,7 @@ class AnimeController extends Controller
     public function index()
     {
       
-        
+        //
 
     }
 
@@ -52,16 +52,13 @@ class AnimeController extends Controller
 
     {
 
-        $animeSingle = collect(Http::withToken(config('services.aniapi.token'))
+        $anime = collect(Http::withToken(config('services.aniapi.token'))
         ->get('https://api.aniapi.com/v1/anime/'.$id)->json()['data']);
 
        
-
-
-
         return view('anime', [
 
-            'anime' => $animeSingle
+            'anime' => $anime
           
     
         ]);
@@ -76,11 +73,6 @@ class AnimeController extends Controller
         ->json()['data']['documents']);
 
         
-
-       
-
-
-
         return view('anime-season', [
 
             'animeSeason' => $animeSeason
@@ -96,6 +88,8 @@ class AnimeController extends Controller
         $animeSeason = collect(Http::withToken(config('services.aniapi.token'))
         ->get('https://api.aniapi.com/v1/anime?status=1&season=3&nsfw=true')
         ->json()['data']['documents']);
+
+       
 
         
         return view('anime-top-airing', [
@@ -137,7 +131,7 @@ class AnimeController extends Controller
         $previous = $page > 1 ? $page -1 : null;
         $next = $page < 155 ? $page +1 : null;
 
-        // dd($animePopular);
+        
 
         
         return view('anime-popular', [

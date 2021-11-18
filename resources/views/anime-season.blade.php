@@ -29,17 +29,11 @@
 
         <article class="mt-8 border-solid border-2 border-gray-200 rounded-xl">
 
-
-
-
-
             <div class="grid md:grid-cols-3 sm:grid-cols-2  gap-1">
 
                 @foreach ($animeSeason as $anime)
 
-
-
-                    <a href="/anime/{{ $anime['id'] }}">
+                     <a href="/anime/{{ $anime['id'] }}">
                         <div
                             class="flex items-center p-3 bg-white hover:bg-red-500 hover:text-white transition duration-300">
                             <img img class="w-52 h-72" src="{{ $anime['cover_image'] }}" alt="" />

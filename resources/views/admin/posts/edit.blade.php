@@ -35,6 +35,7 @@
                         @method('PATCH')
 
                         <x-form.input name="title" :value="old('title', $post->title)" />
+                       
                         <x-form.input name="slug" :value="old('slug', $post->slug)" />
 
                         <div class="flex mt-6">
@@ -50,6 +51,7 @@
                         </div>
 
                         <x-form.textarea name="excerpt">{{ old('excerpt', $post->excerpt) }} </x-form.textarea>
+                        
                         <x-form.textarea name="body">{{ old('body', $post->body) }} </x-form.textarea>
 
                         <div class="mb-6">
@@ -72,17 +74,11 @@
                             @error('category')
                                 <p class="text-red-500 text-xs mt-2"> {{ $message }}</p>
                             @enderror
-
                         </div>
 
 
 
-                        <button
-                            class="bg-red-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-red-600"
-                            type="submit">Update
-                        </button>
-
-
+                        <x-button> Update </x-button>
 
                     </form>
 

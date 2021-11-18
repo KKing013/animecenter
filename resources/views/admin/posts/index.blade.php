@@ -8,9 +8,6 @@
 
                 <h4 class="font-semibold mb-4">Links</h4>
 
-                
-
-
                 <ul>
                  
                     <li>
@@ -104,7 +101,7 @@
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    {{-- <a href="/admin/posts/{{ $post->id }}/edit" class="text-blue-500 hover:text-blue-900">Delete</a> --}}
+                                                  
                                                     <form method="POST" action="/admin/posts/{{ $post->id }}">
                                                         @csrf
                                                         @method('DELETE')
@@ -115,9 +112,6 @@
                                                 </td>
                                             </tr>
                                             @endforeach
-
-                                           
-
 
                                         </tbody>
                                     </table>

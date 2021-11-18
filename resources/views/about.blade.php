@@ -1,11 +1,15 @@
 <x-layout>
 
     <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded">
-        <a href="/" class="transition-colors duration-300 relative inline-flex items-center hover:text-red-500">
-            Home
-            <i class="bi bi-chevron-right ml-1"></i>
+        <x-links>
+            <x-slot name="href">
+                /
+            </x-slot>
 
-        </a>
+            <x-slot name="title">
+                Home
+            </x-slot>
+        </x-links>
     </section>
 
     <section class="max-w-6xl mx-auto space-y-7 flex md:p-0 p-2">
@@ -59,22 +63,13 @@
                         <x-form.input name="email" type="email" required />
                         <x-form.textarea name="comment">{{ old('comment')}} </x-form.textarea>
 
-                        <button
-                            class="bg-red-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-red-600"
-                            type="submit">Contact Us
-                        </button>
+                        <x-button> Contact Us </x-button>
 
 
 
                     </form>
 
                 </div>
-
-
-
-
-
-
 
             </div>
 

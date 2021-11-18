@@ -30,8 +30,6 @@ class PostsController extends Controller
 
         
 
-        
-
         return view('home', [
 
             'news_posts' => Post::latest('updated_at')->with('category', 'author')->where('category_id', 1)->get(),
@@ -47,8 +45,6 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
-
-        
 
         $animeSeason = collect(Http::withToken(config('services.aniapi.token'))
             ->get('https://api.aniapi.com/v1/anime?status=1&season=3&nsfw=true')

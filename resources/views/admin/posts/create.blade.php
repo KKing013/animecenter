@@ -32,9 +32,13 @@
                         @csrf
 
                         <x-form.input name="title" required />
+                       
                         <x-form.input name="slug" required />
+                       
                         <x-form.input name="thumbnail" type="file" required/>
+                        
                         <x-form.textarea name="excerpt">{{ old('excerpt')}} </x-form.textarea>
+                        
                         <x-form.textarea name="body">{{ old('body')}} </x-form.textarea>
 
                         <div class="mb-6">
@@ -62,10 +66,7 @@
 
 
 
-                        <button
-                            class="bg-red-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-red-600"
-                            type="submit">Publish
-                        </button>
+                        <x-button> Publish </x-button>
 
 
 

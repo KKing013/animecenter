@@ -22,10 +22,10 @@ profileBtn.addEventListener("click", function (e) {
 });
 };
 
-
-
 var navdropdown = document.getElementById('navdropdown');
 var navinput = document.getElementById('navinput');
+
+// Clicking outside when search list is open will close list
 
 document.addEventListener('click', function(e) {
     
@@ -45,6 +45,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// Search list dissapears if certain keys are pressed
+
 document.addEventListener('keydown', function(e) {
 
     var animeSearch = document.getElementById('animesearch');
@@ -57,17 +59,20 @@ document.addEventListener('keydown', function(e) {
     
 });
 
+// Resets focus to search bar if '/' is pressed
+
 document.addEventListener('keydown', function(e) {
 
     if(e.keyCode === 191 ){
 
         e.preventDefault();
        
-        
         navinput.focus();
     }
 
 });
+
+// Timeout for success flash message
 
 function hideSuccess() {setTimeout(function () {
 
@@ -82,6 +87,8 @@ function hideSuccess() {setTimeout(function () {
 }, 4000)
 }
 
+// Show anime dropdown
+
 function animeDropown() {
     document.getElementById("animeDropdown").classList.toggle("show");
 }
@@ -92,17 +99,13 @@ document.getElementById('animeNav').addEventListener('mouseover', function () {
 
 })
 
-
-
-
-// Toggle show and hide of dropdown
+// Toggle show and hide of profile dropdown
 
 function dropdown() {
     document.getElementById("dropdownNav").classList.toggle("show");
 }
   
-
-// Close dropdown when user clicks outside  
+// Close profile dropdown when user clicks outside  
 
 window.onclick = function(e) {
    
@@ -123,7 +126,6 @@ window.onclick = function(e) {
       }
     }
 }
-
 
 // Logout Form
 

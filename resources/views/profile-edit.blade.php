@@ -30,6 +30,7 @@
                         @method('PATCH')
 
                         <x-form.input name="description" :value="old('description', $user->description)" />
+                       
                         <x-form.input name="url" type="url" :value="old('url', $user->url)" />
 
 
@@ -42,10 +43,9 @@
                             <img src="/storage/{{ $user->avatar }}" alt="" class="rounded-xl ml-6" width="100">
                         </div>
 
-                        <button
-                            class="bg-red-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-red-600"
-                            type="submit">Update
-                        </button>
+                        <x-button> Update </x-button>
+
+                       
 
 
 

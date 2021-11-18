@@ -44,10 +44,7 @@
 
                 @foreach ($animePopular as $anime)
 
-
-
-
-                    <div class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                <div class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
                         {{ $anime['score'] }}
 
                     </div>
@@ -57,8 +54,8 @@
 
                         <div class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200">
 
-                            <img width="100" height="100" src="{{ $anime['cover_image'] }}" alt=""
-                                class="hover:opacity-60 duration-300 p-4" />
+                            <img src="{{ $anime['cover_image'] }}" alt=""
+                                class="hover:opacity-60 duration-300 p-4 md:w-40 md:h-40 w-20 h-28" />
 
                             <span class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
                                 {{ $anime['titles']['en'] }}
@@ -74,11 +71,7 @@
                             class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
 
 
-
-
-
-
-                            {{ $anime['season_year'] }}
+                    {{ $anime['season_year'] }}
 
 
                         </div>
@@ -91,10 +84,7 @@
                             class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
 
 
-
-
-
-                            N/A
+                        N/A
 
 
                         </div>
@@ -106,77 +96,21 @@
                     @endif
 
 
-
-
                 @endforeach
-
-
-
-
 
 
             </div>
 
 
-
-
-
-
-
-
         </article>
-
-
-
-
-
-
 
     </section>
 
+    
 
-
-
-
-
-
-
+<x-page-nav :previous="$previous" :next="$next" />
 
 </x-layout>
 
 
-{{-- Pagination --}}
 
-<nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center mt-2 mb-10">
-
-    @if ($previous)
-
-
-
-        <a href="/anime/popular/page/{{ $previous }}" rel="prev"
-            class="ml-4 relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-            {!! __('pagination.previous') !!}
-        </a>
-
-    @else
-
-        <div></div>
-
-    @endif
-
-
-    @if ($next)
-
-
-
-        <a href="/anime/popular/page/{{ $next }}" rel="next"
-            class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-            {!! __('pagination.next') !!}
-        </a>
-
-    @else
-
-        <div></div>
-
-    @endif
-</nav>

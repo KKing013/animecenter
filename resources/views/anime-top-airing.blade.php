@@ -1,12 +1,12 @@
 <x-layout>
 
     <section class="max-w-6xl mx-auto flex p-2 border-solid border-2 border-gray-200 rounded-xl">
-        
+
         <x-links>
-           <x-slot name="href">
+            <x-slot name="href">
                 /
             </x-slot>
-            
+
             <x-slot name="title">
                 Home
             </x-slot>
@@ -15,12 +15,12 @@
         <x-links>
             <x-slot name="href">
                 /anime/top-airing
-             </x-slot>
-             
-             <x-slot name="title">
+            </x-slot>
+
+            <x-slot name="title">
                 Top Airing Anime
-             </x-slot>
-         </x-links>
+            </x-slot>
+        </x-links>
 
 
     </section>
@@ -44,10 +44,8 @@
 
                 @foreach ($animeSeason as $anime)
 
-
-
-
-                    <div class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                    <div
+                        class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
                         {{ $anime['score'] }}
 
                     </div>
@@ -57,10 +55,11 @@
 
                         <div class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200">
 
-                            <img width="100" height="100" src="{{ $anime['cover_image'] }}" alt=""
-                                class="hover:opacity-60 duration-300 p-4" />
+                            <img  src="{{ $anime['cover_image'] }}" alt=""
+                                class="hover:opacity-60 duration-300 p-4 md:w-40 md:h-40 w-20 h-28" />
 
-                            <span class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
+                            <span
+                                class="flex mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
                                 {{ $anime['titles']['en'] }}
 
                             </span>
@@ -72,11 +71,6 @@
 
                         <div
                             class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
-
-
-
-
-
 
                             {{ $anime['episodes_count'] }}
 
@@ -90,54 +84,23 @@
                         <div
                             class="flex md:justify-center mx-auto md:w-96 sm:w-50 border-solid border-t-2 border-gray-200 items-center">
 
-
-
-
-
                             N/A
 
 
                         </div>
 
-
-
-
-
                     @endif
-
-
 
 
                 @endforeach
 
 
-
-
-
-
             </div>
-
-
-
-
-
-
 
 
         </article>
 
 
-
-
-
-
-
     </section>
-
-
-
-
-
-
 
 </x-layout>

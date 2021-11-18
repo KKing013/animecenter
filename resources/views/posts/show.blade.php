@@ -89,9 +89,7 @@
                         </div>  
 
                     <div class="flex justify-end mt-6 pt-6 border-t border-gray-200">
-                        <button
-                            class="bg-red-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-red-600"
-                            type="submit">Post</button>
+                        <x-button> Post </x-button>
                     </div>
 
 
