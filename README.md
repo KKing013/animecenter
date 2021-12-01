@@ -7,16 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-> ### Movie database application with integrated API.
+> ### Anime lifestyle website with information and blog.
           
-    Popular movies and current movies pulled from API 
-    Information on each movie
-    Popular tv shows and current tv shows pulled from API
-    Information on each tv show
-    Search functionality for movies and tv shows
-    Information on actors
-
-
+    Anime information from API
+    Blog posts with comments 
+    Anime search functionality from API
+    Fully responsive for mobile
+    Full admin panel with posts and profiles CRUD    
+    
 ----------
 
 # Getting started
