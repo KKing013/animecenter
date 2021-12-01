@@ -1,4 +1,4 @@
-# Laravel Movie App
+# Laravel Anime App
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -26,11 +26,12 @@ Please check the official laravel installation guide for server requirements bef
 
 Clone the repository
 
-    git clone git@github.com:KKing013/movie-app.git
+    git clone git@github.com:KKing013/animecenter.git
 
 Switch to the repo folder
 
-    cd movie-app
+    cd  animecenter
+
 
 Install all the dependencies using composer
 
@@ -56,8 +57,8 @@ You can now access the server at http://localhost:8000
 
 **TL;DR command list**
 
-    git clone git@github.com:KKing013/movie-app.git
-    cd movie-app
+    git clone git@github.com:KKing013/animecenter.git
+    cd animecenter
     composer install
     cp .env.example .env
     php artisan key:generate
